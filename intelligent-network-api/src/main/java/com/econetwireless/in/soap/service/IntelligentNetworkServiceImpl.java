@@ -18,7 +18,7 @@ import javax.xml.ws.soap.SOAPBinding;
  */
 @BindingType(value = SOAPBinding.SOAP12HTTP_BINDING)
 @WebService(endpointInterface = "com.econetwireless.in.soap.service.IntelligentNetworkService",
-        serviceName = "IntelligentNetworkServiceImpl", portName = "IntelligentNetworkPort", name = "IntelligentNetworkService")
+        serviceName = "IntelligentNetworkServiceImpl", portName = "IntelligentNetworkPort")
 public class IntelligentNetworkServiceImpl implements IntelligentNetworkService{
 
     private static final Logger LOGGER = LoggerFactory.getLogger(IntelligentNetworkServiceImpl.class);
