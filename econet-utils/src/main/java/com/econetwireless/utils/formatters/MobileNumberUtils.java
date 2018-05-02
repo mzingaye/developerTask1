@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 public class MobileNumberUtils {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(MobileNumberUtils.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MobileNumberUtils.class);
 
     private MobileNumberUtils() {
 
@@ -77,7 +77,7 @@ public class MobileNumberUtils {
             LOGGER.info(">>>>> 3. Result : "+formatMobileNumber("00263785898366"));
             LOGGER.info(">>>>> 4. Result : "+formatMobileNumber("+263785898366"));
             LOGGER.info(">>>>> 5. Result : "+formatMobileNumber("263785898366"));
-            LOGGER.info(">>>>> 6. Result : "+formatMobileNumber("2637858983667"));
+            //LOGGER.info(">>>>> 6. Result : "+formatMobileNumber("2637858983667"));
         } catch (Exception e) {
             LOGGER.error("Error In Main", e);
         }
