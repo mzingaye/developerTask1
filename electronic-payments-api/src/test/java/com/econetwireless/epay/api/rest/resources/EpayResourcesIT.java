@@ -53,7 +53,8 @@ public class EpayResourcesIT {
     @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = {"/testfiles/integration-test-load-partners.sql", "/testfiles/integration-test-load-request.sql"})
     @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "/testfiles/integration-test-cleanup-partners.sql")
     public void shouldReturnStatusOkIfRequestsAreMoreThanOne() throws Exception {
-        this.mockMvc.perform(get("/resources/services/transactions/{partnerCode}", partnerCode).accept(MediaType.parseMediaType("application/json;charset=UTF-8"))).
+        this.mockMvc.perform(get("/resources/services/transactions/{partnerCode}", partnerCode)
+                .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))).
                 andExpect(status().isOk()).
                 andExpect(content().contentType("application/json;charset=UTF-8")).
                 andExpect(jsonPath("$.responseCode").value(ResponseCode.SUCCESS.getCode())).
@@ -64,7 +65,8 @@ public class EpayResourcesIT {
     @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "/testfiles/integration-test-load-partners.sql")
     @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "/testfiles/integration-test-cleanup-partners.sql")
     public void airtimeBalanceEnquiryShouldReturnResponseCodeSUCCESSIfAllOtherSystemsAreUp() throws Exception {
-        this.mockMvc.perform(get("/resources/services/enquiries/{partnerCode}/balances/{mobileNumber}", partnerCode, "774222278").accept(MediaType.parseMediaType("application/json;charset=UTF-8"))).
+        this.mockMvc.perform(get("/resources/services/enquiries/{partnerCode}/balances/{mobileNumber}", partnerCode, "774222278")
+                .accept(MediaType.parseMediaType("application/json;charset=UTF-8"))).
                 andExpect(status().isOk()).
                 andExpect(content().contentType("application/json;charset=UTF-8")).
                 andExpect(jsonPath("$.responseCode").value(ResponseCode.SUCCESS.getCode())).
