@@ -12,7 +12,11 @@ import java.util.List;
 public interface SubscriberRequestDao extends JpaRepository<SubscriberRequest, Long> {
     List<SubscriberRequest> findByPartnerCode(@Param("partnerCode") String partnerCode);
 
-    public SubscriberRequest persist(SubscriberRequest subscriberRequest);
+    default SubscriberRequest persist(SubscriberRequest subscriberRequest){
+        return saveAndFlush(subscriberRequest);
+    }
 
-    public void update(SubscriberRequest createdSubscriberRequest);
+    default void update(SubscriberRequest createdSubscriberRequest){
+        save(createdSubscriberRequest);
+    }
 }
