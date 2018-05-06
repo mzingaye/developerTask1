@@ -50,7 +50,7 @@ public class IntegrationsConfig {
             proxyFactoryBean.setLookupServiceOnStartup(false);
             return proxyFactoryBean;
         }  catch (Exception e) {
-            LOGGER.error("Error Creating intelligentNetworkService : ", e);
+            LOGGER.error("Error Creating intelligentNetworkService : ", e.getMessage());
             return null;
         }
     }
